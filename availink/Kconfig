@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: GPL-2.0-only
+menu "Support for Amlogic embedded DVB cards"
+	depends on ARCH_MESON || COMPILE_TEST
+
+config DVB_AVL
+	tristate "Availink Demodulator Support"
+	depends on DVB_CORE
+	select DVB_AVLBSP
+	imply DVB_AVL62X1
+	imply DVB_AVL68X2
+	help
+	  Select Y or M to add support for Availink demodulator chips
+
+config DVB_AVLBSP
+	tristate "Availink Common Functions"
+	help
+	  Select Y or M to add support for Availink BSP common functions
+
+config DVB_AVL62X1
+        tristate "Availink 62x1 Demodulator Support"
+	select DVB_AVLBSP
+        help
+          Select Y or M to add support for Availink AVL62x1 demodulator chips
+
+config DVB_AVL68X2
+        tristate "Availink 68x2 Demodulator Support"
+	select DVB_AVLBSP
+        help
+          Select Y or M to add support for Availink AVL68x2 demodulator chips
+
+config DVB_AVL_DEBUG
+	bool "Debugging checks and verbose messages"
+	depends on DVB_AVL
+	help
+	  Say N here unless you know what you're doing
