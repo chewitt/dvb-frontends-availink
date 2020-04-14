@@ -14,7 +14,7 @@ avl62x1-objs := avl62x1/avl62x1_top.o avl62x1/sdk_src/avl62x1_api.o avl62x1/sdk_
 avl68x2-objs := avl68x2/avl68x2_top.o avl68x2/sdk_src/AVL_Demod_DVBSx.o avl68x2/sdk_src/AVL_Demod_DVBTx.o avl68x2/sdk_src/AVL_Demod_CommonInternal.o avl68x2/sdk_src/AVL_Demod.o avl68x2/sdk_src/AVL_Demod_ISDBT.o avl68x2/sdk_src/AVL_Demod_DVBC.o
 mxl608-objs := tuners/mxl608.o
 rda5815m-objs := tuners/rda5815m.o
-tuner_ftm4862-objs := tuner_ftm4862.o
+tuner_ftm4862-objs := tuners/tuner_ftm4862.o
 
 obj-$(CONFIG_DVB_AVLBSP) += avl_bsp.o
 obj-$(CONFIG_DVB_AVL62X1) += avl62x1.o
