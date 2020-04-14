@@ -7,7 +7,7 @@ ccflags-y += -I$(KERNELDIR)/drivers/media/tuners
 ccflags-y += -I$(PWD)/common
 ccflags-y += -I$(PWD)/avl62x1/sdk_src
 ccflags-y += -I$(PWD)/avl68x2/sdk_src
-ccflags-y += -I. -DDUAL_TUNER
+ccflags-y += -I-DDUAL_TUNER
 
 avl_bsp-objs := common/avl_bsp_linux.o common/avl_lib.o
 avl62x1-objs := avl62x1/avl62x1_top.o avl62x1/sdk_src/avl62x1_api.o avl62x1/sdk_src/avl62x1_lib.o
@@ -15,12 +15,14 @@ avl68x2-objs := avl68x2/avl68x2_top.o avl68x2/sdk_src/AVL_Demod_DVBSx.o avl68x2/
 mxl608-objs := tuners/mxl608.o
 rda5815m-objs := tuners/rda5815m.o
 tuner_ftm4862-objs := tuners/tuner_ftm4862.o
+mn88436-objs := tuners/mn88436.o
 
 obj-$(CONFIG_DVB_AVLBSP) += avl_bsp.o
 obj-$(CONFIG_DVB_AVL62X1) += avl62x1.o
 obj-$(CONFIG_DVB_AVL68X2) += avl68x2.o
+obj-$(CONFIG_DVB_MN88436) += mn88436.o
 obj-$(CONFIG_DVB_MXL608) += mxl608.o
 obj-$(CONFIG_DVB_RDA5815M) += rda5815m.o
 obj-$(CONFIG_DVB_FTM4862) += tuner_ftm4862.o
 
-obj-$(if $(KBUILD_EXTMOD),m,$(CONFIG_DVB_MESON)) := avl_bsp.o avl62x1.o avl68x2.o mxl608.o rda5815m.o tuner_ftm4862.o
+obj-$(if $(KBUILD_EXTMOD),m,$(CONFIG_DVB_MESON)) := avl_bsp.o avl62x1.o avl68x2.o mn88436.o mxl608.o rda5815m.o tuner_ftm4862.o
