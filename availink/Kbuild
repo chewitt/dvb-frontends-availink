@@ -11,8 +11,8 @@ ccflags-y += -I$(KERNELDIR)/drivers/media/usb/dvb-usb
 ccflags-y += -I$(KERNELDIR)/drivers/media/dvb-frontends
 ccflags-y += -I$(KERNELDIR)/drivers/media/tuners 
 ccflags-y += -I$(PWD)/common
-ccflags-y += -I$(PWD)/avl62x1/sdk_src
-ccflags-y += -I$(PWD)/avl68x2/sdk_src
+#ccflags-y += -I$(PWD)/avl62x1/sdk_src
+#ccflags-y += -I$(PWD)/avl68x2/sdk_src
 
 avl_bsp-objs := common/avl_bsp_linux.o common/avl_lib.o
 avl62x1-objs := avl62x1/avl62x1_top.o avl62x1/avl62x1_api.o avl62x1/avl62x1_lib.o
