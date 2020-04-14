@@ -29,9 +29,6 @@
 #include "AVL_Demod_DVBC.h"
 #include "AVL_Demod_ISDBT.h"
 
-#define INCLUDE_STDOUT	1
-
-
 #define dbg_avl(fmt, args...)                                           \
 	do                                                              \
 	{                                                               \
@@ -991,10 +988,6 @@ static int get_frontend(struct dvb_frontend *fe,
 }
 
 
-#if INCLUDE_STDOUT
-#include "read_stdout.c"
-#endif
-
 static int avl68x2_read_status(struct dvb_frontend *fe, enum fe_status *status)
 {
 	struct avl68x2_priv *priv = fe->demodulator_priv;
@@ -1055,11 +1048,6 @@ static int avl68x2_read_status(struct dvb_frontend *fe, enum fe_status *status)
 	  printk("AVL: %s: read status %d, snr = %d, per = %d\n",__func__,*status, SNR_x100db, ber);
 	}
 
-#if INCLUDE_STDOUT
-	if(debug > 2) {
-		printk("%s",read_stdout(fe));
-	}
-#endif
 	return ret;
 }
 
