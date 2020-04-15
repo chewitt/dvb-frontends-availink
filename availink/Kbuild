@@ -1,21 +1,23 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 
 ccflags-y += -I$(KERNELDIR)/drivers/media/dvb-core
-ccflags-y += -I$(KERNELDIR)/drivers/media/usb/dvb-usb
 ccflags-y += -I$(KERNELDIR)/drivers/media/dvb-frontends
 ccflags-y += -I$(KERNELDIR)/drivers/media/tuners 
-ccflags-y += -I$(PWD)/common
+ccflags-y += -I$(KERNELDIR)/drivers/media/usb/dvb-usb
 ccflags-y += -I$(PWD)/avl62x1/sdk_src
 ccflags-y += -I$(PWD)/avl68x2/sdk_src
+ccflags-y += -I$(PWD)/common
+ccflags-y += -I$(PWD)/tuners
 ccflags-y += -I-DDUAL_TUNER
 
 avl_bsp-objs := common/avl_bsp_linux.o common/avl_lib.o
 avl62x1-objs := avl62x1/avl62x1_top.o avl62x1/sdk_src/avl62x1_api.o avl62x1/sdk_src/avl62x1_lib.o
 avl68x2-objs := avl68x2/avl68x2_top.o avl68x2/sdk_src/AVL_Demod_DVBSx.o avl68x2/sdk_src/AVL_Demod_DVBTx.o avl68x2/sdk_src/AVL_Demod_CommonInternal.o avl68x2/sdk_src/AVL_Demod.o avl68x2/sdk_src/AVL_Demod_ISDBT.o avl68x2/sdk_src/AVL_Demod_DVBC.o
+
+mn88436-objs := tuners/mn88436.o
 mxl608-objs := tuners/mxl608.o
 rda5815m-objs := tuners/rda5815m.o
 tuner_ftm4862-objs := tuners/tuner_ftm4862.o
-mn88436-objs := tuners/mn88436.o
 
 obj-$(CONFIG_DVB_AVLBSP) += avl_bsp.o
 obj-$(CONFIG_DVB_AVL62X1) += avl62x1.o
